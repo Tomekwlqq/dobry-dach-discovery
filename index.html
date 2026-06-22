@@ -181,6 +181,38 @@
   .role-c .col ul{margin-left:17px}
   .role-c .col li{margin:6px 0;font-size:14px}
 
+  /* input forms per role */
+  .optional{display:inline-block;background:#eef4fb;color:var(--blue2);font-size:12px;font-weight:700;
+    padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .inbox{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:18px;overflow:hidden}
+  .inbox .ihead{padding:15px 20px;color:#fff;display:flex;align-items:center;gap:12px}
+  .inbox.i1 .ihead{background:linear-gradient(135deg,#2e7d4f,#3a9d63)}
+  .inbox.i2 .ihead{background:linear-gradient(135deg,#1f4e79,#2e5496)}
+  .inbox.i3 .ihead{background:linear-gradient(135deg,#7a4b13,#a9701f)}
+  .inbox .ihead .iic{font-size:22px}
+  .inbox .ihead b{font-size:17px;display:block}
+  .inbox .ihead small{opacity:.9;font-size:12.5px}
+  .inbox .ibody{padding:18px 20px}
+  .inbox label.fl{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin:12px 0 5px}
+  .inbox label.fl:first-child{margin-top:0}
+  .inbox textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 12px;
+    font-family:inherit;font-size:14.5px;color:var(--ink);resize:vertical;min-height:64px;background:#fcfdfe}
+  .inbox textarea:focus{outline:none;border-color:var(--blue2);box-shadow:0 0 0 3px rgba(46,84,150,.12)}
+  .inbox .filerow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:6px}
+  .inbox .filebtn{display:inline-flex;align-items:center;gap:8px;background:#eef4fb;color:var(--blue);
+    border:1px dashed #bcd0ea;border-radius:9px;padding:9px 14px;font-size:14px;font-weight:600;cursor:pointer}
+  .inbox .filebtn:hover{background:#e2edfa}
+  .inbox input[type=file]{display:none}
+  .inbox .filenames{font-size:13px;color:var(--mut)}
+  .formnote{background:#fff7ec;border:1px solid #f3dcb4;border-left:5px solid var(--accent);
+    border-radius:10px;padding:14px 18px;margin-bottom:18px;font-size:14.5px;color:#7a5512}
+  .saverow{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:6px}
+  .btn{background:var(--blue);color:#fff;border:none;border-radius:9px;padding:11px 20px;font-size:15px;
+    font-weight:700;cursor:pointer;font-family:inherit}
+  .btn:hover{background:#163a5c}
+  .btn.ghost{background:#fff;color:var(--blue);border:1px solid var(--line)}
+  .savemsg{font-size:13.5px;color:var(--green);font-weight:600}
+
   footer{padding:30px 0 50px;color:var(--mut);font-size:13.5px}
   .src{font-size:13px;color:var(--mut);margin-top:10px;line-height:1.9}
 </style>
@@ -207,6 +239,7 @@
     <a href="#luki">Luki w rynku</a>
     <a href="#wnioski">Pozycjonowanie</a>
     <a href="#kroki">Kolejne kroki</a>
+    <a href="#wasz-glos">Wasz głos</a>
     <a href="#discovery">Discovery</a>
   </div>
 </nav>
@@ -437,6 +470,70 @@
   </ol>
 </section>
 
+<!-- WASZ GŁOS — interaktywne pola per rola -->
+<section id="wasz-glos">
+  <h2>Wasz głos <span class="optional">pola nieobowiązkowe</span></h2>
+  <p class="lead">Macie trzy perspektywy w firmie — niech każda zostawi swój ślad. Wpiszcie oczekiwania, pomysły i obserwacje, możecie też dorzucić pliki (umowy, raporty, zdjęcia). Nic tu nie jest wymagane — wypełniajcie tyle, ile chcecie.</p>
+  <div class="formnote">Uwaga techniczna: to wersja robocza huba. Wpisany tekst zapisuje się lokalnie w Waszej przeglądarce (możecie wrócić i dokończyć), a pliki służą na razie do podejrzenia. Najpewniejszy sposób przekazania nam treści to przycisk „Pobierz swoje odpowiedzi” na dole — wyśle plik, który odeślecie nam mailem.</p>
+
+  <div class="inbox i1">
+    <div class="ihead"><span class="iic">🔧</span><span><b>Kierownik budowy</b><small>Perspektywa operacyjna — codzienna robota i raportowanie</small></span></div>
+    <div class="ibody">
+      <label class="fl">Czego oczekujesz od systemu w codziennej pracy?</label>
+      <textarea data-key="k_oczek" placeholder="Np. raport w pół minuty, bez klikania, działa na słońcu i w rękawicach…"></textarea>
+      <label class="fl">Twoje pomysły — co by realnie pomogło na budowie?</label>
+      <textarea data-key="k_pomysl" placeholder="Np. dyktowanie głosem, zdjęcie = automatyczny wpis, przypomnienie wieczorem…"></textarea>
+      <label class="fl">Obserwacje — co dziś najbardziej przeszkadza / zabiera czas?</label>
+      <textarea data-key="k_obserw" placeholder="Np. to samo wpisuję w trzech miejscach, info ginie w WhatsAppie…"></textarea>
+      <label class="fl">Pliki (raporty, zdjęcia, cokolwiek)</label>
+      <div class="filerow">
+        <label class="filebtn">📎 Dodaj pliki<input type="file" multiple data-files="k"></label>
+        <span class="filenames" data-fnames="k">brak plików</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="inbox i2">
+    <div class="ihead"><span class="iic">📐</span><span><b>Właściciel — strona budowlana</b><small>Materia budowlana — jakość i zgodność wykonania</small></span></div>
+    <div class="ibody">
+      <label class="fl">Czego oczekujesz, by kontrolować jakość i zgodność z projektem?</label>
+      <textarea data-key="b_oczek" placeholder="Np. wgląd w postęp zdalnie, dowody z dachu, alert gdy coś odbiega od projektu…"></textarea>
+      <label class="fl">Twoje pomysły — jak chciałbyś „widzieć” budowę bez bycia na niej?</label>
+      <textarea data-key="b_pomysl" placeholder="Np. dzienny przegląd zdjęć z opisem etapu, mapa odstępstw…"></textarea>
+      <label class="fl">Obserwacje — gdzie najczęściej wychodzą problemy jakościowe?</label>
+      <textarea data-key="b_obserw" placeholder="Np. dowiaduję się o błędzie dopiero przy odbiorze, brak dokumentacji etapów…"></textarea>
+      <label class="fl">Pliki (projekty, protokoły, zdjęcia)</label>
+      <div class="filerow">
+        <label class="filebtn">📎 Dodaj pliki<input type="file" multiple data-files="b"></label>
+        <span class="filenames" data-fnames="b">brak plików</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="inbox i3">
+    <div class="ihead"><span class="iic">⚖️</span><span><b>Właściciel — strona finansowo-prawna</b><small>Umowa i kasa — rozliczenia, zmiany, ryzyko</small></span></div>
+    <div class="ibody">
+      <label class="fl">Czego oczekujesz po stronie umów, zmian i rozliczeń?</label>
+      <textarea data-key="f_oczek" placeholder="Np. twardy ślad kto co zatwierdził, szybka wycena zmian, kontrola marży…"></textarea>
+      <label class="fl">Twoje pomysły — co zabezpieczyłoby Was w sporach i gwarancji?</label>
+      <textarea data-key="f_pomysl" placeholder="Np. komplet dowodów wykonania pod roszczenia, integracja KSeF/EDB…"></textarea>
+      <label class="fl">Obserwacje — gdzie najczęściej tracicie pieniądze lub ryzykujecie prawnie?</label>
+      <textarea data-key="f_obserw" placeholder="Np. spory o zakres bez dokumentów, zmiany akceptowane za wolno…"></textarea>
+      <label class="fl">Pliki (umowy, aneksy, rozliczenia)</label>
+      <div class="filerow">
+        <label class="filebtn">📎 Dodaj pliki<input type="file" multiple data-files="f"></label>
+        <span class="filenames" data-fnames="f">brak plików</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="saverow">
+    <button class="btn" id="download">⬇️ Pobierz swoje odpowiedzi (do wysłania mailem)</button>
+    <button class="btn ghost" id="clearall">Wyczyść</button>
+    <span class="savemsg" id="savemsg"></span>
+  </div>
+</section>
+
 <!-- DISCOVERY — schowane w dropdownie na później -->
 <section id="discovery" style="border-bottom:none">
   <h2>Materiały sesji discovery</h2>
@@ -583,5 +680,75 @@
 </footer>
 
 </div>
+
+<script>
+(function(){
+  var KEY = "dobrydach_wasz_glos_v1";
+  var areas = document.querySelectorAll("textarea[data-key]");
+  var msg = document.getElementById("savemsg");
+
+  // restore
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){}
+  areas.forEach(function(a){ if(saved[a.dataset.key]) a.value = saved[a.dataset.key]; });
+
+  function persist(){
+    var data = {};
+    areas.forEach(function(a){ data[a.dataset.key] = a.value; });
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
+    msg.textContent = "Zapisano w przeglądarce ✓";
+    clearTimeout(window.__t); window.__t = setTimeout(function(){ msg.textContent=""; }, 2000);
+  }
+  areas.forEach(function(a){ a.addEventListener("input", persist); });
+
+  // file names display
+  document.querySelectorAll("input[type=file][data-files]").forEach(function(inp){
+    inp.addEventListener("change", function(){
+      var span = document.querySelector('[data-fnames="'+inp.dataset.files+'"]');
+      if(!inp.files.length){ span.textContent = "brak plików"; return; }
+      span.textContent = Array.prototype.map.call(inp.files, function(f){ return f.name; }).join(", ");
+    });
+  });
+
+  // download answers as txt
+  var labels = {
+    k:"KIEROWNIK BUDOWY (operacyjnie)", b:"WŁAŚCICIEL — STRONA BUDOWLANA (jakość)", f:"WŁAŚCICIEL — STRONA FINANSOWO-PRAWNA (umowa/kasa)"
+  };
+  var rows = {
+    oczek:"Oczekiwania", pomysl:"Pomysły", obserw:"Obserwacje"
+  };
+  document.getElementById("download").addEventListener("click", function(){
+    var out = "DOBRY DACH — odpowiedzi z huba discovery\n";
+    out += "Data: " + new Date().toLocaleString("pl-PL") + "\n";
+    out += "====================================\n\n";
+    ["k","b","f"].forEach(function(r){
+      out += "### " + labels[r] + "\n";
+      ["oczek","pomysl","obserw"].forEach(function(c){
+        var v = (document.querySelector('[data-key="'+r+"_"+c+'"]')||{}).value || "";
+        out += "- " + rows[c] + ": " + (v.trim() ? v.trim() : "(brak)") + "\n";
+      });
+      var span = document.querySelector('[data-fnames="'+r+'"]');
+      out += "- Pliki wskazane: " + (span ? span.textContent : "brak") + "\n\n";
+    });
+    out += "(Pliki prześlijcie jako załączniki do maila — ten plik zawiera tylko ich nazwy.)\n";
+    var blob = new Blob([out], {type:"text/plain;charset=utf-8"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "dobry-dach-odpowiedzi.txt";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+
+  document.getElementById("clearall").addEventListener("click", function(){
+    if(!confirm("Wyczyścić wszystkie pola?")) return;
+    areas.forEach(function(a){ a.value = ""; });
+    try { localStorage.removeItem(KEY); } catch(e){}
+    document.querySelectorAll("[data-fnames]").forEach(function(s){ s.textContent = "brak plików"; });
+    document.querySelectorAll("input[type=file]").forEach(function(i){ i.value = ""; });
+    msg.textContent = "Wyczyszczono";
+    setTimeout(function(){ msg.textContent=""; }, 2000);
+  });
+})();
+</script>
 </body>
 </html>
