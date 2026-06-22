@@ -8,6 +8,7 @@
   :root{
     --blue:#1f4e79; --blue2:#2e5496; --accent:#e8911e; --bg:#f4f6f9;
     --card:#ffffff; --ink:#1f2530; --mut:#5b6573; --line:#e3e8ef; --ok:#2e7d4f;
+    --red:#c0392b; --green:#2e7d4f;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -16,26 +17,24 @@
   a{color:var(--blue2);text-decoration:none}
   a:hover{text-decoration:underline}
 
-  /* layout */
   .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
   header.hero{background:linear-gradient(135deg,#16395c,#1f4e79 55%,#2e5496);color:#fff;padding:54px 0 46px}
   .hero .tag{display:inline-block;background:rgba(255,255,255,.15);padding:5px 13px;border-radius:30px;
     font-size:13px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
   .hero h1{font-size:44px;line-height:1.1;margin-bottom:10px;font-weight:800}
-  .hero p.sub{font-size:19px;opacity:.92;max-width:760px}
+  .hero p.sub{font-size:19px;opacity:.92;max-width:780px}
   .hero .meta{margin-top:22px;font-size:14px;opacity:.8}
 
-  /* nav */
   nav.toc{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);
     box-shadow:0 1px 6px rgba(0,0,0,.04)}
   nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:0 22px}
-  nav.toc a{padding:14px 14px;font-size:14px;font-weight:600;color:var(--mut);white-space:nowrap;border-bottom:3px solid transparent}
+  nav.toc a{padding:14px 13px;font-size:14px;font-weight:600;color:var(--mut);white-space:nowrap;border-bottom:3px solid transparent}
   nav.toc a:hover{color:var(--blue);text-decoration:none}
 
   section{padding:46px 0;border-bottom:1px solid var(--line)}
   section h2{font-size:28px;color:var(--blue);margin-bottom:6px;font-weight:800}
-  section .lead{color:var(--mut);font-size:17px;max-width:820px;margin-bottom:26px}
-  h3{font-size:20px;color:var(--blue2);margin:26px 0 12px}
+  section .lead{color:var(--mut);font-size:17px;max-width:840px;margin-bottom:26px}
+  h3{font-size:20px;color:var(--blue2);margin:28px 0 12px}
 
   .grid{display:grid;gap:18px}
   .g4{grid-template-columns:repeat(4,1fr)}
@@ -43,66 +42,102 @@
   .g2{grid-template-columns:repeat(2,1fr)}
   @media(max-width:900px){.g4,.g3,.g2{grid-template-columns:1fr}}
 
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
   .card .ic{font-size:26px;margin-bottom:8px}
   .card h4{font-size:17px;margin-bottom:6px;color:var(--ink)}
   .card p{font-size:14.5px;color:var(--mut)}
 
-  /* goal chips */
   .goals{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
   @media(max-width:900px){.goals{grid-template-columns:repeat(2,1fr)}}
   .goal{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:16px}
   .goal b{display:block;color:var(--blue);margin-bottom:4px}
   .goal span{font-size:14px;color:var(--mut)}
 
-  /* agenda table */
+  /* lifecycle */
+  .life{display:flex;gap:0;flex-wrap:wrap;margin-top:10px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  .life .ph{flex:1;min-width:150px;background:#fff;padding:16px 14px;border-right:1px solid var(--line);position:relative}
+  .life .ph:last-child{border-right:none}
+  .life .ph .num{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:1px}
+  .life .ph b{display:block;color:var(--blue);font-size:15px;margin:4px 0}
+  .life .ph span{font-size:13px;color:var(--mut)}
+
   table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;
-    border:1px solid var(--line);font-size:15px}
-  th{background:var(--blue);color:#fff;text-align:left;padding:11px 14px;font-weight:700;font-size:14px}
-  td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+    border:1px solid var(--line);font-size:14.5px}
+  th{background:var(--blue);color:#fff;text-align:left;padding:11px 13px;font-weight:700;font-size:13.5px}
+  td{padding:11px 13px;border-top:1px solid var(--line);vertical-align:top}
   tr:nth-child(even) td{background:#f8fafc}
   td.time{white-space:nowrap;font-weight:700;color:var(--blue2);width:120px}
   td.block{font-weight:600;width:230px}
 
-  /* questions accordions */
   details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
   details[open]{box-shadow:0 2px 10px rgba(0,0,0,.05)}
   summary{cursor:pointer;padding:16px 18px;font-weight:700;color:var(--blue);list-style:none;
-    display:flex;justify-content:space-between;align-items:center}
+    display:flex;justify-content:space-between;align-items:center;gap:10px}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:22px;color:var(--accent);font-weight:400}
-  details[open] summary::after{content:"–"}
+  summary .arr{font-size:22px;color:var(--accent);font-weight:400}
+  details[open] summary .arr{transform:rotate(45deg)}
   details .body{padding:0 18px 16px}
   details ul{margin-left:18px}
   details li{margin:7px 0;font-size:15px}
 
-  /* checklist */
-  .check-grp{margin-bottom:8px}
+  /* big dropdown wrapper for discovery */
+  .stash{background:#fff;border:2px dashed #c9d4e2;border-radius:14px;margin:6px 0}
+  .stash>summary{padding:20px 22px;font-size:18px}
+  .stash>summary small{display:block;font-weight:500;color:var(--mut);font-size:13.5px;margin-top:3px}
+  .stash .inner{padding:6px 22px 22px}
+
   .chk{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);
     border-radius:10px;padding:13px 15px;margin-bottom:9px}
   .chk input{margin-top:4px;width:18px;height:18px;flex:none;accent-color:var(--blue)}
   .chk .t b{display:block;font-size:15px}
   .chk .t span{font-size:13.5px;color:var(--mut)}
 
+  /* dual UX */
+  .dual{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+  @media(max-width:900px){.dual{grid-template-columns:1fr}}
+  .ux{border-radius:14px;padding:22px;border:1px solid var(--line)}
+  .ux.simple{background:linear-gradient(160deg,#eaf6ee,#fff);border-color:#bfe3cb}
+  .ux.deep{background:linear-gradient(160deg,#eef3fb,#fff);border-color:#c6d6ee}
+  .ux h4{font-size:19px;margin-bottom:4px}
+  .ux.simple h4{color:var(--green)}
+  .ux.deep h4{color:var(--blue)}
+  .ux .who{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+  .ux.simple .who{color:var(--green)}
+  .ux.deep .who{color:var(--blue2)}
+  .ux ul{margin-left:18px}
+  .ux li{margin:7px 0;font-size:14.5px}
+
   /* software cards */
   .sw{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column}
   .sw .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:4px}
   .sw h4{font-size:18px;color:var(--blue)}
-  .sw .pill{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap}
+  .sw .pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap}
+  .pill.roof{background:#fdeaea;color:#b03a2e}
   .pill.ent{background:#e7f0fb;color:#1f4e79}
-  .pill.res{background:#fdf0e0;color:#9a5a07}
   .pill.field{background:#e6f4ec;color:#2e7d4f}
   .pill.pl{background:#f0e9fb;color:#5b3aa0}
   .sw .role{font-size:13px;color:var(--mut);margin-bottom:10px;font-style:italic}
-  .sw ul{margin-left:17px;font-size:14px}
-  .sw li{margin:5px 0}
+  .sw .lbl{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin:8px 0 3px}
+  .sw .lbl.p{color:var(--green)}
+  .sw .lbl.m{color:var(--red)}
+  .sw ul{margin-left:17px;font-size:13.8px}
+  .sw li{margin:4px 0}
   .sw .price{margin-top:auto;padding-top:12px;font-size:13px;color:var(--blue2);font-weight:600}
 
   .callout{background:#eef4fb;border:1px solid #cfe0f3;border-left:5px solid var(--blue);
     border-radius:10px;padding:18px 20px;margin:8px 0}
   .callout.warn{background:#fff7ec;border-color:#f3dcb4;border-left-color:var(--accent)}
+  .callout.gap{background:#fdecea;border-color:#f3c9c2;border-left-color:var(--red)}
   .callout h4{color:var(--blue);margin-bottom:6px}
   .callout.warn h4{color:#9a5a07}
+  .callout.gap h4{color:var(--red)}
+
+  /* gap matrix */
+  .matrix td.y{color:var(--green);font-weight:700;text-align:center}
+  .matrix td.n{color:var(--red);font-weight:700;text-align:center}
+  .matrix td.pp{color:var(--accent);font-weight:700;text-align:center}
+  .matrix td:first-child{font-weight:600}
+  .matrix .us{background:#eaf6ee !important}
 
   .bot{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
   @media(max-width:900px){.bot{grid-template-columns:1fr}}
@@ -120,7 +155,6 @@
     display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
 
   footer{padding:30px 0 50px;color:var(--mut);font-size:13.5px}
-  footer a{color:var(--blue2)}
   .src{font-size:13px;color:var(--mut);margin-top:10px;line-height:1.9}
 </style>
 </head>
@@ -128,328 +162,329 @@
 
 <header class="hero">
   <div class="wrap">
-    <span class="tag">Hub projektu · discovery</span>
+    <span class="tag">Hub projektu · discovery + analiza rynku</span>
     <h1>Dobry Dach</h1>
-    <p class="sub">Aplikacja do prowadzenia inwestycji budowlanych — bieżące zarządzanie projektem, trackowanie zmian, weryfikacja rzeczywistości względem planu i gromadzenie dokumentacji. Centralny punkt na fazę discovery.</p>
-    <div class="meta">Wersja 1.0 · czerwiec 2026 · odbiorca sesji: inwestor / deweloper</div>
+    <p class="sub">System dla wykonawcy pokryć dachowych — od kontraktu, przez wykonanie i odbiór, aż po okres gwarancyjny. Ekstremalnie prosty input dla ekipy, pełna kontrola dla zarządu. Centralny hub projektu.</p>
+    <div class="meta">Wersja 2.0 · czerwiec 2026 · odbiorca: podwykonawca dekarski (firma wykonawcza)</div>
   </div>
 </header>
 
 <nav class="toc">
   <div class="wrap">
-    <a href="#cele">Cele</a>
-    <a href="#sesja">Sesja</a>
-    <a href="#agenda">Agenda</a>
-    <a href="#pytania">Pytania</a>
-    <a href="#checklista">Checklista</a>
+    <a href="#kim">Dla kogo</a>
+    <a href="#cykl">Cykl życia</a>
+    <a href="#filozofia">Filozofia: prostota</a>
+    <a href="#dual">Dwa UX</a>
     <a href="#bot">Wieczorny bot</a>
-    <a href="#software">Software – research</a>
-    <a href="#wnioski">Wnioski</a>
+    <a href="#rynek">Analiza konkurencji</a>
+    <a href="#luki">Luki w rynku</a>
+    <a href="#wnioski">Pozycjonowanie</a>
     <a href="#kroki">Kolejne kroki</a>
+    <a href="#discovery">Discovery</a>
   </div>
 </nav>
 
 <div class="wrap">
 
-<!-- CELE -->
-<section id="cele">
-  <h2>Cele produktu</h2>
-  <p class="lead">Cztery filary, wokół których budujemy aplikację. Każdy z nich przekłada się wprost na pytania w sesji discovery i na funkcje narzędzia.</p>
+<!-- DLA KOGO -->
+<section id="kim">
+  <h2>Dla kogo budujemy</h2>
+  <p class="lead">Odbiorcą jest <b>wykonawca — a właściwie podwykonawca konkretnego obszaru: pokryć dachowych</b>. Nie inwestor. System prowadzi firmę dekarską przez cały kontrakt i nie kończy się na odbiorze — towarzyszy aż do końca okresu gwarancyjnego.</p>
   <div class="goals">
-    <div class="goal"><b>Bieżące zarządzanie</b><span>Jeden widok statusu inwestycji — etapy, terminy, odpowiedzialności.</span></div>
-    <div class="goal"><b>Trackowanie zmian</b><span>Rejestr change orderów z wyceną, akceptacją i pełnym śladem decyzji.</span></div>
-    <div class="goal"><b>Plan vs. rzeczywistość</b><span>Weryfikacja postępu względem harmonogramu i budżetu bazowego.</span></div>
-    <div class="goal"><b>Dokumentacja zmian</b><span>Gromadzenie dowodów: zdjęcia, raporty, decyzje, dziennik budowy.</span></div>
+    <div class="goal"><b>Bieżące zarządzanie</b><span>Status każdego kontraktu w jednym widoku — etapy, terminy, ludzie.</span></div>
+    <div class="goal"><b>Trackowanie zmian</b><span>Rejestr zmian z wyceną i akceptacją — twardy dowód w sporach.</span></div>
+    <div class="goal"><b>Plan vs. rzeczywistość</b><span>Weryfikacja zgodności wykonania z projektem i harmonogramem.</span></div>
+    <div class="goal"><b>Dokumentacja + gwarancja</b><span>Dowody (zdjęcia, protokoły) zbierane od startu aż po roszczenia gwarancyjne.</span></div>
   </div>
 </section>
 
-<!-- SESJA -->
-<section id="sesja">
-  <h2>Po co jest sesja discovery</h2>
-  <p class="lead">Pierwsze ustrukturyzowane spotkanie z inwestorem. Celem jest zrozumienie konkretnej inwestycji oraz tego, jak inwestor chce ją prowadzić i kontrolować. Nie jest to spotkanie sprzedażowe ani techniczne — zbieramy fakty, dokumenty i oczekiwania.</p>
-  <div class="grid g4">
-    <div class="card"><div class="ic">🗺️</div><h4>Mapa inwestycji</h4><p>Zakres, harmonogram, budżet, kluczowe etapy i kamienie milowe.</p></div>
-    <div class="card"><div class="ic">👥</div><h4>Uczestnicy procesu</h4><p>Kto za co odpowiada: inwestor, kierownik budowy, ekipy, inspektor nadzoru.</p></div>
-    <div class="card"><div class="ic">📁</div><h4>Dokumenty bazowe</h4><p>To, względem czego weryfikujemy postęp i rejestrujemy zmiany.</p></div>
-    <div class="card"><div class="ic">📞</div><h4>Sposób raportowania</h4><p>Jak informacja płynie z budowy — w tym pomysł na wieczornego bota.</p></div>
-  </div>
-  <div class="callout" style="margin-top:24px">
-    <h4>Jak prowadzić spotkanie</h4>
-    <p>Ok. 90 minut, najlepiej z osobą decyzyjną i — jeśli się da — kierownikiem budowy. Jedna osoba pyta, druga notuje. Pytania otwarte, pozwalamy klientowi mówić. Nie obiecujemy funkcji — zbieramy potrzeby, priorytetyzujemy później. Na koniec podsumowujemy ustalenia na głos i potwierdzamy, kto dostarcza brakujące dokumenty.</p>
+<!-- CYKL -->
+<section id="cykl">
+  <h2>Cykl życia kontraktu</h2>
+  <p class="lead">System obejmuje pełną drogę — to ważne, bo większość konkurencji urywa się na odbiorze albo skupia tylko na sprzedaży/ofertowaniu.</p>
+  <div class="life">
+    <div class="ph"><span class="num">01</span><b>Kontrakt</b><span>Umowa, zakres, harmonogram, budżet bazowy — punkt odniesienia.</span></div>
+    <div class="ph"><span class="num">02</span><b>Wykonanie</b><span>Codzienny postęp z dachu, zdjęcia, zużycie, raporty ekipy.</span></div>
+    <div class="ph"><span class="num">03</span><b>Zmiany</b><span>Rejestr odstępstw od kontraktu z wyceną i akceptacją.</span></div>
+    <div class="ph"><span class="num">04</span><b>Odbiór</b><span>Lista usterek (punch list), protokoły, zgodność z projektem.</span></div>
+    <div class="ph"><span class="num">05</span><b>Gwarancja</b><span>Nadzór roszczeń i napraw przez cały okres gwarancyjny.</span></div>
   </div>
 </section>
 
-<!-- AGENDA -->
-<section id="agenda">
-  <h2>Agenda sesji (90 min)</h2>
-  <p class="lead">Ramowy przebieg. Bloki można skracać zależnie od tego, gdzie jest najwięcej do omówienia.</p>
-  <table>
-    <tr><th>Czas</th><th>Blok</th><th>Cel / co ustalamy</th></tr>
-    <tr><td class="time">0–10 min</td><td class="block">Wprowadzenie i kontekst</td><td>Cel spotkania, kto jest w pokoju i kto decyduje. Krótki opis inwestycji własnymi słowami inwestora.</td></tr>
-    <tr><td class="time">10–25 min</td><td class="block">Inwestycja: zakres i cele</td><td>Co budujemy, gdzie, dla kogo. Główny cel: termin, budżet czy jakość — co jest najważniejsze.</td></tr>
-    <tr><td class="time">25–40 min</td><td class="block">Harmonogram i etapy</td><td>Etapy, kamienie milowe, terminy. Co już trwa, co przed nami. Jak dziś śledzony jest postęp.</td></tr>
-    <tr><td class="time">40–55 min</td><td class="block">Budżet i zmiany</td><td>Budżet, kosztorys, rozliczenia. Jak dziś obsługiwane są zmiany i kto je zatwierdza.</td></tr>
-    <tr><td class="time">55–70 min</td><td class="block">Ekipa i przepływ informacji</td><td>Kto jest na budowie, jak inwestor dostaje informacje, gdzie są luki. Pomysł na wieczornego bota.</td></tr>
-    <tr><td class="time">70–82 min</td><td class="block">Dokumentacja i ryzyka</td><td>Gdzie są dokumenty, co bywa problemem (spory, opóźnienia, jakość), wymagania formalne i odbiory.</td></tr>
-    <tr><td class="time">82–90 min</td><td class="block">Podsumowanie i kroki</td><td>Powtórzenie ustaleń, lista brakujących dokumentów, terminy, właściciele zadań.</td></tr>
-  </table>
+<!-- FILOZOFIA -->
+<section id="filozofia">
+  <h2>Filozofia: ekstremalna prostota inputu</h2>
+  <p class="lead">Fundament produktu, wzorowany na Hilti / Fieldwire. Najczęstszy powód, dla którego systemy w budownictwie upadają, to brak adopcji w terenie — ekipa po prostu nie wypełnia. Research to potwierdza twardo.</p>
+  <div class="grid g3">
+    <div class="card"><div class="ic">⏱️</div><h4>Zasada 5 minut / 2 minut</h4><p>Jeśli pierwszy raport zajmuje ekipie więcej niż 5 min bez pomocy — interfejs nie jest wystarczająco prosty. Cel: raport gotowy w &lt;2 min.</p></div>
+    <div class="card"><div class="ic">🎙️</div><h4>Głos + zdjęcie + tap</h4><p>Wpis głosowy jest 3–5× szybszy od pisania, zwłaszcza w rękawicach. Voice-to-text potrafi podnieść completion rate z 40% do 95%.</p></div>
+    <div class="card"><div class="ic">📵</div><h4>Działa offline</h4><p>Na dachu nie ma zasięgu. Nagranie, zdjęcie i checklista muszą działać bez sieci, z auto-synchronizacją po powrocie zasięgu.</p></div>
+  </div>
+  <div class="callout warn" style="margin-top:20px">
+    <h4>Reguła projektowa: „trudny tylko dla nadzorców”</h4>
+    <p>Złożoność systemu jest dopuszczalna wyłącznie po stronie zarządu/nadzoru. Ten, kto raportuje pracę (brygadzista, kierownik kontraktu), nigdy nie powinien zobaczyć pełnej maszynerii. Jeśli wrzucenie zdjęcia wymaga trzech menu i ręcznego tagowania — nikt tego nie zrobi.</p>
+  </div>
 </section>
 
-<!-- PYTANIA -->
-<section id="pytania">
-  <h2>Pytania discovery</h2>
-  <p class="lead">Pytania prowadzące wg bloków. Nie trzeba zadać wszystkich — wybieramy te, które otwierają temat. Rozwiń sekcję.</p>
-
-  <details open><summary>Inwestycja — zakres i cele</summary><div class="body"><ul>
-    <li>Proszę opisać inwestycję własnymi słowami — co powstaje, na jakim etapie jesteśmy dziś?</li>
-    <li>Główny cel: dotrzymanie terminu, budżetu czy jakości? Co jest najważniejsze, gdyby trzeba było wybrać?</li>
-    <li>Jak będzie wyglądał sukces tej inwestycji z Pana/Pani perspektywy?</li>
-    <li>Ile podobnych inwestycji prowadzą Państwo równolegle? Jedna czy wiele w aplikacji?</li>
-  </ul></div></details>
-
-  <details><summary>Harmonogram i postęp</summary><div class="body"><ul>
-    <li>Czy istnieje harmonogram (Gantt, lista etapów)? W jakiej formie — Excel, program, papier?</li>
-    <li>Jak dziś sprawdza Pan/Pani, czy budowa idzie zgodnie z planem? Skąd ta informacja pochodzi?</li>
-    <li>Jak często chciałby Pan/Pani widzieć status — codziennie, co tydzień?</li>
-    <li>Co jest sygnałem alarmowym, że coś idzie nie tak? Po czym to dziś poznajecie — często za późno?</li>
-  </ul></div></details>
-
-  <details><summary>Budżet i zmiany</summary><div class="body"><ul>
-    <li>Jak wygląda budżet i kosztorys? Czy jest podział na pozycje (kosztorys / schedule of values)?</li>
-    <li>Jak dziś przebiega zmiana w trakcie budowy — kto zgłasza, kto wycenia, kto akceptuje?</li>
-    <li>Ile czasu zajmuje zatwierdzenie zmiany? Czy zdarzają się spory o to, co było ustalone?</li>
-    <li>Czy potrzebny jest ślad decyzji — kto, kiedy i co zatwierdził?</li>
-  </ul></div></details>
-
-  <details><summary>Ekipa i przepływ informacji</summary><div class="body"><ul>
-    <li>Kto jest codziennie na budowie? Kto jest źródłem informacji o tym, co się dzieje?</li>
-    <li>Jak ta informacja do Pana/Pani trafia — telefon, zdjęcia, raporty, WhatsApp?</li>
-    <li>Gdzie najczęściej coś umyka albo dociera za późno?</li>
-    <li>Pomysł na wieczornego bota dzwoniącego do brygadzisty — jak Pan/Pani to ocenia? Czy ekipa odbierze? O co warto pytać co wieczór?</li>
-  </ul></div></details>
-
-  <details><summary>Dokumentacja, ryzyka, formalności</summary><div class="body"><ul>
-    <li>Gdzie dziś trzymane są dokumenty (umowy, projekty, pozwolenia, protokoły)?</li>
-    <li>Jakie odbiory i kontrole są wymagane? Kto je przeprowadza?</li>
-    <li>Czy prowadzicie elektroniczny dziennik budowy (EDB / GUNB)? Jak ma się do niego nasza aplikacja?</li>
-    <li>Co poszło nie tak na poprzednich inwestycjach — czego chcemy uniknąć?</li>
-  </ul></div></details>
-</section>
-
-<!-- CHECKLISTA -->
-<section id="checklista">
-  <h2>Checklista — co przygotować / dostarczyć</h2>
-  <p class="lead">Do wysłania inwestorowi przed sesją lub do uzupełnienia po niej. Opis pokazuje, do czego dana informacja posłuży w aplikacji. Pola można odhaczać.</p>
-
-  <h3>Dane podstawowe inwestycji</h3>
-  <div class="check-grp">
-    <label class="chk"><input type="checkbox"><span class="t"><b>Nazwa, lokalizacja i typ inwestycji</b><span>Założenie projektu w systemie, kontekst dla wszystkich modułów.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Strony procesu i role (inwestor, GW, kierownik budowy, inspektor nadzoru, ekipy)</b><span>Mapa odpowiedzialności i uprawnień — kto co widzi i zatwierdza.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Dane kontaktowe osób na budowie (telefony brygadzistów)</b><span>Konfiguracja wieczornego bota i powiadomień.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Pozwolenie na budowę / dokumenty formalne</b><span>Rejestr dokumentów bazowych i wymogów formalnych.</span></span></label>
-  </div>
-
-  <h3>Plan: harmonogram i zakres</h3>
-  <div class="check-grp">
-    <label class="chk"><input type="checkbox"><span class="t"><b>Harmonogram robót (Gantt / etapy / kamienie milowe)</b><span>Baza odniesienia (baseline) do weryfikacji plan vs. rzeczywistość.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Zakres prac (projekt, przedmiar, opis etapów)</b><span>Definicja tego, co ma powstać — punkt odniesienia do odbiorów.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Lista kluczowych terminów i odbiorów</b><span>Kamienie milowe i alerty o zbliżających się / przekroczonych terminach.</span></span></label>
-  </div>
-
-  <h3>Budżet i zmiany</h3>
-  <div class="check-grp">
-    <label class="chk"><input type="checkbox"><span class="t"><b>Kosztorys / budżet z podziałem na pozycje</b><span>Śledzenie wykonania finansowego i % zaawansowania pozycji.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Dotychczasowe zmiany / aneksy (jeśli są)</b><span>Import historii zmian i wzorzec procesu akceptacji.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Ścieżka akceptacji zmian (kto zatwierdza, do jakiej kwoty)</b><span>Workflow zatwierdzania change orderów z pełnym śladem decyzji.</span></span></label>
-  </div>
-
-  <h3>Raportowanie z budowy</h3>
-  <div class="check-grp">
-    <label class="chk"><input type="checkbox"><span class="t"><b>Wzór dzisiejszego raportu dziennego / dziennika budowy</b><span>Punkt wyjścia do zestawu pytań dla bota i formularza raportu.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Lista pytań, które warto zadawać ekipie co wieczór</b><span>Scenariusz rozmowy bota — co realnie chce wiedzieć inwestor.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Sposób dokumentowania zdjęć / postępu z placu</b><span>Moduł dokumentacji wizualnej i dowodów postępu.</span></span></label>
-  </div>
-
-  <h3>Dokumentacja i ryzyka</h3>
-  <div class="check-grp">
-    <label class="chk"><input type="checkbox"><span class="t"><b>Miejsce przechowywania dokumentów (dysk, segregator, system)</b><span>Plan migracji / integracji repozytorium dokumentów.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Znane ryzyka i bolączki z poprzednich inwestycji</b><span>Priorytetyzacja funkcji — rozwiązujemy realne problemy najpierw.</span></span></label>
-    <label class="chk"><input type="checkbox"><span class="t"><b>Wymagania prawne dot. obiegu i archiwizacji dokumentów</b><span>Zgodność i zasady retencji dokumentacji zmian.</span></span></label>
+<!-- DUAL UX -->
+<section id="dual">
+  <h2>Dwa interfejsy, jeden system</h2>
+  <p class="lead">Te same dane, dwa zupełnie różne doświadczenia. To architektoniczna decyzja, nie kosmetyka.</p>
+  <div class="dual">
+    <div class="ux simple">
+      <h4>⚡ Tryb prosty — wprowadzanie</h4>
+      <div class="who">Brygadzista / kierownik ekipy · kierownik kontraktu (biuro)</div>
+      <ul>
+        <li>Jeden ekran: co zrobiono dziś, zdjęcie, ewentualny problem.</li>
+        <li>Input głosowy i fotograficzny zamiast formularzy.</li>
+        <li>Predefiniowane odpowiedzi — minimum pisania.</li>
+        <li>Działa offline, synchronizuje się sam.</li>
+        <li>Brygadzista raportuje za całą ekipę na koniec dnia — albo robi to wieczorny bot za niego.</li>
+      </ul>
+    </div>
+    <div class="ux deep">
+      <h4>🎛️ Tryb pełny — nadzór</h4>
+      <div class="who">Właściciel / zarząd firmy dekarskiej</div>
+      <ul>
+        <li>Wszystkie kontrakty naraz: status, marże, ryzyka.</li>
+        <li>Weryfikacja zgodności wykonania z planem (plan vs. rzeczywistość).</li>
+        <li>Rejestr zmian i pełny ślad decyzji do sporów.</li>
+        <li>Monitoring zobowiązań gwarancyjnych i roszczeń.</li>
+        <li>Tu złożoność jest dozwolona — to centrum kontroli.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- BOT -->
 <section id="bot">
-  <h2>Wieczorny bot dzwoniący — „szalony pomysł”</h2>
-  <p class="lead">Kluczowy wyróżnik produktu. Większość narzędzi czeka, aż ktoś z budowy wejdzie do aplikacji i wypełni raport — co najczęściej się nie dzieje. Bot odwraca model: sam dzwoni co wieczór i wyciąga informacje rozmową.</p>
+  <h2>Wieczorny bot dzwoniący</h2>
+  <p class="lead">Doprowadzenie filozofii prostoty do skrajności: zero apki do otwierania. Większość narzędzi czeka, aż ekipa sama wejdzie i wypełni — co się nie dzieje. Bot odwraca model i sam dzwoni.</p>
   <div class="bot">
-    <div class="step"><span class="n">1</span><h4>Dzwoni o ustalonej porze</h4><p>Wieczorny telefon do brygadzisty / kierownika. Zero logowania, zero aplikacji do otwierania.</p></div>
-    <div class="step"><span class="n">2</span><h4>Zadaje konkretne pytania</h4><p>3–5 pytań: co zrobiono, co jutro, czego brakuje, problemy, opóźnienia. Krótko i zawsze tak samo.</p></div>
-    <div class="step"><span class="n">3</span><h4>Spisuje i zasila system</h4><p>Odpowiedzi trafiają do raportu dziennego, aktualizują postęp i flagują ryzyka dla inwestora.</p></div>
+    <div class="step"><span class="n">1</span><h4>Dzwoni o ustalonej porze</h4><p>Wieczorny telefon do brygadzisty. Żadnej aplikacji, żadnego logowania.</p></div>
+    <div class="step"><span class="n">2</span><h4>Zadaje 3–5 pytań</h4><p>Co zrobiono, co jutro, czego brakuje, problemy, opóźnienia. Krótko, zawsze tak samo.</p></div>
+    <div class="step"><span class="n">3</span><h4>Spisuje i zasila system</h4><p>Odpowiedzi → raport dzienny, aktualizacja postępu, flagi ryzyk dla zarządu.</p></div>
   </div>
-  <div class="callout warn" style="margin-top:22px">
+  <div class="callout warn" style="margin-top:20px">
     <h4>Do walidacji w discovery</h4>
-    <p>Czy ekipa odbierze takie połączenie i potraktuje je poważnie? O co dokładnie pytać, żeby odpowiedzi były użyteczne? Język i ton rozmowy. Co zrobić, gdy nikt nie odbierze. To pytania, na które odpowiedź musi paść na sesji — rekomendacja: pilot na jednej budowie z 3–5 pytaniami.</p>
+    <p>Czy brygadzista odbierze i potraktuje serio? O co dokładnie pytać? Co przy braku odbioru? Rekomendacja: pilot na jednej budowie z 3–5 pytaniami.</p>
   </div>
 </section>
 
-<!-- SOFTWARE -->
-<section id="software">
-  <h2>Profesjonalne software — research funkcji</h2>
-  <p class="lead">Przegląd wiodących narzędzi do zarządzania budową: co oferują, dla kogo są i czego możemy się nauczyć. Pomaga ustalić, gdzie jest miejsce dla „Dobrego Dachu” i czego nie kopiować.</p>
+<!-- RYNEK -->
+<section id="rynek">
+  <h2>Analiza konkurencji</h2>
+  <p class="lead">Trzy warstwy: wyspecjalizowane narzędzia dekarskie (najbliższa konkurencja), duże platformy budowlane oraz rynek polski. Dla każdej pozycji: model, mocne strony i — najważniejsze — słabości.</p>
 
-  <h3>Narzędzia globalne</h3>
+  <h3>Warstwa 1 — narzędzia dekarskie (roofing-specific)</h3>
   <div class="grid g2">
     <div class="sw">
-      <div class="top"><h4>Procore</h4><span class="pill ent">Enterprise</span></div>
-      <div class="role">Kompleksowa platforma dla dużych projektów komercyjnych</div>
-      <ul>
-        <li>Zarządzanie rysunkami i specyfikacjami z auto-wersjonowaniem</li>
-        <li>RFI, submittale, punch listy wpięte w timeline projektu</li>
-        <li>Synchronizacja pole ↔ biuro w czasie rzeczywistym</li>
-        <li>Konfigurowalne inspekcje BHP i checklisty QA/QC</li>
-      </ul>
-      <div class="price">od ~$499/mc za projekt · raczej dla dużych GW</div>
+      <div class="top"><h4>AccuLynx</h4><span class="pill roof">Roofing</span></div>
+      <div class="role">Najgłębsza platforma zbudowana wyłącznie pod dekarstwo</div>
+      <div class="lbl p">Mocne</div>
+      <ul><li>Pomiary dachu z lotu, estymacja, fakturowanie, raporty</li><li>Field App (jesień 2025) — pełne ofertowanie z terenu</li><li>Bardzo głęboka pod ubezpieczeniowe restoration</li></ul>
+      <div class="lbl m">Słabe / luka</div>
+      <ul><li>Przeładowana — „overkill” dla ekip &lt;5 osób</li><li>Stroma krzywa uczenia, per-user pricing dławi marżę przy wzroście</li></ul>
+      <div class="price">Enterprise roofing · drogie przy skali</div>
     </div>
     <div class="sw">
-      <div class="top"><h4>Buildertrend</h4><span class="pill res">Residential</span></div>
-      <div class="role">Dla budownictwa mieszkaniowego i komunikacji z klientem</div>
-      <ul>
-        <li>Szybkie kosztorysowanie powtarzalnych projektów domów</li>
-        <li>Rozbudowany portal klienta i śledzenie wyborów (selections)</li>
-        <li>Harmonogram, komunikacja, faktury w jednym</li>
-        <li>Ponad milion użytkowników — silne na rynku US residential</li>
-      </ul>
-      <div class="price">~$399–799/mc ryczałt · dobre dla budujących domy</div>
+      <div class="top"><h4>JobNimbus</h4><span class="pill roof">Roofing CRM</span></div>
+      <div class="role">Elastyczny CRM dla wykonawców, łatwo wyginać pod swój proces</div>
+      <div class="lbl p">Mocne</div>
+      <ul><li>Łatwiejszy onboarding, otwarte API</li><li>Konfigurowalne workflow pod typ pracy</li><li>Dobry punkt wejścia dla małych/średnich</li></ul>
+      <div class="lbl m">Słabe / luka</div>
+      <ul><li>Estymacja podstawowa — wymaga integracji (Roofr, SumoQuote)</li><li>Per-user pricing; słaba obsługa fazy gwarancyjnej</li></ul>
+      <div class="price">Per-user · dla retail roofing</div>
+    </div>
+    <div class="sw">
+      <div class="top"><h4>Roofr</h4><span class="pill roof">Roofing</span></div>
+      <div class="role">Błyskawiczne pomiary i oferty, ulubieniec zespołów sprzedażowych</div>
+      <div class="lbl p">Mocne</div>
+      <ul><li>Darmowe pomiary z lotu, kreator ofert i umów</li><li>Czysty, szybki interfejs — chwalony za prostotę</li><li>Brak miesięcznej subskrypcji na wejściu</li></ul>
+      <div class="lbl m">Słabe / luka</div>
+      <ul><li>Skupiony na sprzedaży/ofercie — słaby na wykonaniu i gwarancji</li><li>Nie prowadzi kontraktu przez cały cykl</li></ul>
+      <div class="price">Sales-first · luka po stronie realizacji</div>
+    </div>
+    <div class="sw">
+      <div class="top"><h4>Dataforma / RoofSnap / SiteCapture</h4><span class="pill roof">Roofing niche</span></div>
+      <div class="role">Pomiary, dokumentacja foto, zarządzanie cyklem zlecenia</div>
+      <div class="lbl p">Mocne</div>
+      <ul><li>Wyspecjalizowane: pomiar, foto z placu, raporty</li><li>Mobilne, nastawione na teren</li></ul>
+      <div class="lbl m">Słabe / luka</div>
+      <ul><li>Rozdrobnione — każde robi wycinek, brak jednego spójnego cyklu</li><li>Mało lub brak obsługi okresu gwarancyjnego</li></ul>
+      <div class="price">Punktowe rozwiązania</div>
+    </div>
+  </div>
+
+  <h3>Warstwa 2 — duże platformy budowlane</h3>
+  <div class="grid g3">
+    <div class="sw">
+      <div class="top"><h4>Procore</h4><span class="pill ent">Enterprise</span></div>
+      <div class="role">Kompleks dla dużych GW</div>
+      <div class="lbl p">Mocne</div><ul><li>Rysunki, RFI, punch listy, QA/QC</li><li>Sync pole ↔ biuro</li></ul>
+      <div class="lbl m">Słabe</div><ul><li>~$499/mc/projekt, ciężki dla wykonawcy niszowego</li><li>Za dużo funkcji = bariera adopcji w ekipie</li></ul>
     </div>
     <div class="sw">
       <div class="top"><h4>Fieldwire (Hilti)</h4><span class="pill field">Field-first</span></div>
-      <div class="role">Koordynacja w terenie, mobilność, praca offline</div>
-      <ul>
-        <li>Zadania, przypisania i issue tracking prosto z placu</li>
-        <li>Adnotacje na rysunkach na tablecie / telefonie</li>
-        <li>Tryb offline z auto-synchronizacją po odzyskaniu sieci</li>
-        <li>Mocny nacisk na prostotę użycia przez ekipy</li>
-      </ul>
-      <div class="price">od ~$39/użytkownik/mc · najtańsze wejście</div>
+      <div class="role">Nasz wzorzec prostoty</div>
+      <div class="lbl p">Mocne</div><ul><li>Zadania i issue tracking z placu, offline</li><li>Adnotacje na rysunkach, mobilność</li></ul>
+      <div class="lbl m">Słabe</div><ul><li>Generyczny — nie zna specyfiki dekarstwa</li><li>Brak kontraktu i gwarancji jako osi</li></ul>
     </div>
     <div class="sw">
-      <div class="top"><h4>Autodesk Construction Cloud</h4><span class="pill ent">Enterprise / BIM</span></div>
-      <div class="role">Workflow zintegrowany z modelem BIM</div>
-      <ul>
-        <li>Połączenie modeli projektowych z wykonaniem w terenie</li>
-        <li>Analiza zdjęć tagowanych przez AI, predykcja ryzyk</li>
-        <li>Automatyczna ekstrakcja danych z rysunków (2025)</li>
-        <li>Asystent AI do wyszukiwania informacji o projekcie</li>
-      </ul>
-      <div class="price">Wycena projektowa · dla zaawansowanych BIM</div>
-    </div>
-    <div class="sw">
-      <div class="top"><h4>Raken</h4><span class="pill field">Field-first</span></div>
-      <div class="role">Raporty dzienne i dokumentacja z placu</div>
-      <ul>
-        <li>Raport dzienny + ankiety / pytania do brygadzisty</li>
-        <li>Manpower, pogoda, zdjęcia, checklisty BHP</li>
-        <li>Ponad 130 mln zdjęć z budów na platformie</li>
-        <li>Filozofia „raport gotowy w &lt;2 min” — najbliższe naszemu pomysłowi</li>
-      </ul>
-      <div class="price">Najbliższy referencyjny model raportowania</div>
-    </div>
-    <div class="sw">
-      <div class="top"><h4>CompanyCam</h4><span class="pill field">Photo-first</span></div>
-      <div class="role">Dokumentacja wizualna jako rdzeń produktu</div>
-      <ul>
-        <li>Zdjęcia auto-sortowane, ze znacznikiem czasu i lokalizacji</li>
-        <li>Adnotacje i komentarze na zdjęciach w terenie</li>
-        <li>Nielimitowany storage w chmurze</li>
-        <li>AI generujące gotowe raporty fotograficzne</li>
-      </ul>
-      <div class="price">Wzorzec dla modułu dowodów wizualnych</div>
+      <div class="top"><h4>Raken · CompanyCam</h4><span class="pill field">Field-first</span></div>
+      <div class="role">Raporty dzienne + foto</div>
+      <div class="lbl p">Mocne</div><ul><li>Raport &lt;2 min, pytania do ekipy (Raken)</li><li>Foto auto-sortowane, AI raporty (CompanyCam)</li></ul>
+      <div class="lbl m">Słabe</div><ul><li>To moduły, nie pełny system kontraktu</li><li>Brak zarządczego nadzoru i gwarancji</li></ul>
     </div>
   </div>
 
-  <h3>Rynek polski — bardzo istotny kontekst</h3>
-  <div class="grid g2">
+  <h3>Warstwa 3 — rynek polski</h3>
+  <div class="grid g3">
     <div class="sw">
-      <div class="top"><h4>EDB / GUNB (oficjalny)</h4><span class="pill pl">Państwowy</span></div>
-      <div class="role">Elektroniczny Dziennik Budowy — od 2023/2024 r.</div>
-      <ul>
-        <li>Oficjalny, darmowy dziennik budowy (App Store / Google Play)</li>
-        <li>Wymaga konta GUNB + Profil Zaufany / e-dowód</li>
-        <li>Działa bez stałego internetu, na zwykłym smartfonie</li>
-        <li>Wpisy, przypisywanie odpowiedzialności, podgląd dokumentacji 24/7</li>
-      </ul>
-      <div class="price">Nie konkurent — punkt integracji / referencja prawna</div>
+      <div class="top"><h4>EDB / GUNB</h4><span class="pill pl">Państwowy</span></div>
+      <div class="role">Elektroniczny Dziennik Budowy</div>
+      <div class="lbl p">Mocne</div><ul><li>Oficjalny, darmowy, wymóg prawny</li><li>Działa bez stałego internetu</li></ul>
+      <div class="lbl m">Rola</div><ul><li>Nie konkurent — punkt integracji i referencja prawna</li></ul>
     </div>
     <div class="sw">
-      <div class="top"><h4>budow.app</h4><span class="pill pl">PL · all-in-one</span></div>
-      <div class="role">System dla firm, GW, deweloperów i kosztorysantów</div>
-      <ul>
-        <li>Dziennik budowy, kosztorys, harmonogram, usterki</li>
-        <li>Magazyn, integracja KSeF, raporty PDF w jednym</li>
-        <li>Dopasowany do polskich procesów</li>
-      </ul>
-      <div class="price">Bezpośredni punkt odniesienia konkurencyjny (PL)</div>
+      <div class="top"><h4>budow.app · SimplyBud</h4><span class="pill pl">PL all-in-one</span></div>
+      <div class="role">Dla firm, GW, deweloperów</div>
+      <div class="lbl p">Mocne</div><ul><li>Dziennik, kosztorys, harmonogram, KSeF</li><li>Zgodność z polskim prawem</li></ul>
+      <div class="lbl m">Słabe</div><ul><li>Generyczne budowlane — nie dekarskie</li><li>Brak filozofii „input w 2 min” dla ekipy</li></ul>
     </div>
     <div class="sw">
-      <div class="top"><h4>SimplyBud</h4><span class="pill pl">PL</span></div>
-      <div class="role">Dziennik budowy zgodny z polskim prawem</div>
-      <ul>
-        <li>Bez tłumaczeń obcych pojęć i „obcych” procesów</li>
-        <li>Skrojony pod polskie realia formalne</li>
-      </ul>
-      <div class="price">Lokalny gracz niszowy</div>
-    </div>
-    <div class="sw">
-      <div class="top"><h4>PlanRadar · BudoApka</h4><span class="pill pl">PL / EU</span></div>
-      <div class="role">Zarządzanie budową, usterki, komunikacja z klientem</div>
-      <ul>
-        <li>PlanRadar: usterki, dokumentacja, raporty, obecny w PL</li>
-        <li>BudoApka: dokumentacja, koszty, wyceny, komunikacja z inwestorem</li>
-      </ul>
-      <div class="price">Rozpoznawalni na rynku PL</div>
+      <div class="top"><h4>Worker-PRO · PlanRadar · Serwis Planner</h4><span class="pill pl">PL / EU</span></div>
+      <div class="role">Zlecenia, usterki, karty pracy</div>
+      <div class="lbl p">Mocne</div><ul><li>Karty zadań, checklisty, foto, protokoły mobilne</li><li>Obecne i rozpoznawalne w PL</li></ul>
+      <div class="lbl m">Słabe</div><ul><li>Szerokie usługowo, nie wyspecjalizowane dekarsko</li><li>Słaby wieczorny przepływ danych od ekipy</li></ul>
     </div>
   </div>
+</section>
+
+<!-- LUKI -->
+<section id="luki">
+  <h2>Luki w rynku — gdzie wchodzimy</h2>
+  <p class="lead">Synteza słabości całego rynku. To są „dziury w całym”, na których budujemy przewagę.</p>
+  <div class="grid g2">
+    <div class="callout gap"><h4>1. Adopcja w terenie to nr 1 powód porażki</h4><p>Słaba adopcja ekipy to najczęstszy powód, dla którego wdrożenia padają w małych firmach. „Jeśli ekipa nie używa apki, cały system się sypie.” Nikt nie rozwiązał tego naprawdę — bot dzwoniący to robi.</p></div>
+    <div class="callout gap"><h4>2. Per-user pricing dławi marże</h4><p>AccuLynx, JobNimbus, ServiceTitan liczą za użytkownika — koszt cicho się podwaja przy każdym nowym pracowniku. Model flat / rola-bez-pełnej-licencji to realna przewaga cenowa.</p></div>
+    <div class="callout gap"><h4>3. Enterprise = za skomplikowane, nisza = rozdrobniona</h4><p>Duże platformy przytłaczają, a narzędzia dekarskie robią wycinki (osobno pomiar, osobno foto, osobno CRM). Brakuje jednego prostego systemu prowadzącego cały kontrakt.</p></div>
+    <div class="callout gap"><h4>4. Faza gwarancyjna porzucona</h4><p>Warranty/closeout obsługują głównie platformy dla homebuilderów. Dla wykonawcy dekarskiego nadzór roszczeń przez okres gwarancji to biała plama — a to realne pieniądze i ryzyko.</p></div>
+  </div>
+
+  <h3>Macierz: kto co realnie pokrywa</h3>
+  <table class="matrix">
+    <tr><th>Funkcja</th><th>Roofing CRM<br>(AccuLynx/JobNimbus)</th><th>Field apps<br>(Fieldwire/Raken)</th><th>PL<br>(budow.app)</th><th>Dobry Dach</th></tr>
+    <tr><td>Input ekipy w &lt;2 min (głos/foto)</td><td class="n">częśc.</td><td class="y">tak</td><td class="n">nie</td><td class="y us">rdzeń</td></tr>
+    <tr><td>Bot zbierający dane sam</td><td class="n">nie</td><td class="n">nie</td><td class="n">nie</td><td class="y us">tak</td></tr>
+    <tr><td>Pełny cykl kontrakt→gwarancja</td><td class="pp">częśc.</td><td class="n">nie</td><td class="pp">częśc.</td><td class="y us">tak</td></tr>
+    <tr><td>Specjalizacja dekarska</td><td class="y">tak</td><td class="n">nie</td><td class="n">nie</td><td class="y us">tak</td></tr>
+    <tr><td>Nadzór gwarancji / roszczeń</td><td class="n">słabo</td><td class="pp">częśc.</td><td class="n">nie</td><td class="y us">tak</td></tr>
+    <tr><td>Model cenowy bez kary per-user</td><td class="n">nie</td><td class="n">nie</td><td class="pp">różnie</td><td class="y us">cel</td></tr>
+    <tr><td>Zgodność z PL (EDB, KSeF)</td><td class="n">nie</td><td class="n">nie</td><td class="y">tak</td><td class="y us">tak</td></tr>
+  </table>
 </section>
 
 <!-- WNIOSKI -->
 <section id="wnioski">
-  <h2>Wnioski dla „Dobrego Dachu”</h2>
-  <p class="lead">Co z tego researchu wynika dla pozycjonowania produktu.</p>
+  <h2>Pozycjonowanie „Dobrego Dachu”</h2>
   <div class="grid g3">
-    <div class="card"><div class="ic">🎯</div><h4>Luka: perspektywa inwestora</h4><p>Większość narzędzi celuje w wykonawcę/GW. „Dobry Dach” może być narzędziem inwestora kontrolującego wykonawcę — to inny punkt widzenia niż Procore czy budow.app.</p></div>
-    <div class="card"><div class="ic">📞</div><h4>Przewaga: bot zamiast formularza</h4><p>Raken pokazuje wagę raportu dziennego, ale wciąż wymaga wejścia do apki. Bot dzwoniący eliminuje barierę „ekipa nic nie wpisuje”.</p></div>
-    <div class="card"><div class="ic">⚖️</div><h4>EDB to nie konkurent</h4><p>Oficjalny dziennik budowy istnieje i jest darmowy. Nie walczymy z nim — integrujemy / uzupełniamy o zarządzanie, zmiany i kontrolę inwestora.</p></div>
-    <div class="card"><div class="ic">🇵🇱</div><h4>Lokalność wygrywa</h4><p>SimplyBud i budow.app budują przewagę na zgodności z polskim prawem i procesami. To minimum, nie wyróżnik.</p></div>
-    <div class="card"><div class="ic">⏱️</div><h4>Zmiany = pieniądze i czas</h4><p>Cyfrowy obieg change orderów skraca czas z ~24 dni do ~3,5 dnia. To twardy argument sprzedażowy dla inwestora.</p></div>
-    <div class="card"><div class="ic">📐</div><h4>Plan vs. rzeczywistość</h4><p>Earned value / SOV i % zaawansowania to standard. Nasza wartość: zasilanie tych metryk danymi z bota, automatycznie.</p></div>
+    <div class="card"><div class="ic">🎯</div><h4>Wyspecjalizowany + pełny cykl</h4><p>Jeden system dekarski prowadzący kontrakt od umowy po gwarancję — zamiast sklejania pomiaru, foto i CRM-u z trzech narzędzi.</p></div>
+    <div class="card"><div class="ic">📞</div><h4>Bot zamiast formularza</h4><p>Rozwiązujemy problem nr 1 rynku — adopcję w terenie — eliminując potrzebę wchodzenia ekipy do aplikacji.</p></div>
+    <div class="card"><div class="ic">⚡</div><h4>Dual-UX jak Hilti</h4><p>Prosto dla raportujących, pełna moc dla zarządu. Złożoność tylko tam, gdzie jest potrzebna.</p></div>
+    <div class="card"><div class="ic">💰</div><h4>Uczciwy model cenowy</h4><p>Brak kary za każdego pracownika w terenie — wprost atakuje największą bolączkę kosztową konkurencji.</p></div>
+    <div class="card"><div class="ic">🛡️</div><h4>Gwarancja jako oś</h4><p>Nadzór roszczeń przez cały okres gwarancyjny — obszar, który konkurencja porzuca.</p></div>
+    <div class="card"><div class="ic">🇵🇱</div><h4>Zgodność z PL od startu</h4><p>Integracja z EDB/GUNB i KSeF jako standard, nie dodatek — globalni gracze tego nie mają.</p></div>
   </div>
 </section>
 
 <!-- KROKI -->
-<section id="kroki" style="border-bottom:none">
-  <h2>Po sesji — kolejne kroki</h2>
+<section id="kroki">
+  <h2>Kolejne kroki</h2>
   <ol class="next">
-    <li>Spisanie notatek i ustaleń (najlepiej w 24 h, póki świeże).</li>
-    <li>Uzupełnienie checklisty — co dostaliśmy, czego brakuje, kto dostarcza i do kiedy.</li>
-    <li>Krótkie podsumowanie zwrotne do inwestora z listą ustaleń i otwartych punktów.</li>
-    <li>Wstępna priorytetyzacja funkcji na bazie realnych bolączek.</li>
-    <li>Decyzja o pilocie wieczornego bota — jedna budowa, 3–5 pytań, jako test.</li>
+    <li>Walidacja pozycjonowania dekarskiego na 2–3 rozmowach z firmami wykonawczymi.</li>
+    <li>Test „zasady 2 minut” — prototyp ekranu raportu i pomiar realnego czasu na dachu.</li>
+    <li>Pilot wieczornego bota: jedna budowa, 3–5 pytań, pomiar completion rate.</li>
+    <li>Decyzja o modelu cenowym (flat / role-based) jako element przewagi.</li>
+    <li>Mapowanie integracji EDB/GUNB i KSeF — zakres i koszt.</li>
   </ol>
+</section>
+
+<!-- DISCOVERY — schowane w dropdownie na później -->
+<section id="discovery" style="border-bottom:none">
+  <h2>Materiały sesji discovery</h2>
+  <p class="lead">Schowane na później — agenda, pełna lista pytań i checklista do sesji z firmą wykonawczą. Rozwiń, gdy będzie potrzebne.</p>
+
+  <details class="stash">
+    <summary><span>📋 Sesja discovery — agenda, pytania, checklista <small>kliknij, aby rozwinąć — materiał do wykorzystania na etapie rozmów z klientem</small></span><span class="arr">+</span></summary>
+    <div class="inner">
+
+      <h3>Agenda sesji (90 min)</h3>
+      <table>
+        <tr><th>Czas</th><th>Blok</th><th>Cel / co ustalamy</th></tr>
+        <tr><td class="time">0–10</td><td class="block">Wprowadzenie</td><td>Cel spotkania, kto decyduje, krótki opis firmy i typowego kontraktu własnymi słowami.</td></tr>
+        <tr><td class="time">10–25</td><td class="block">Kontrakt i zakres</td><td>Jak wygląda typowy kontrakt dekarski, zakres, kto jest zleceniodawcą (GW/inwestor).</td></tr>
+        <tr><td class="time">25–40</td><td class="block">Wykonanie i ekipa</td><td>Kto jest na dachu, jak dziś raportują, gdzie informacja ginie. Pomysł na bota.</td></tr>
+        <tr><td class="time">40–55</td><td class="block">Zmiany i rozliczenia</td><td>Jak obsługiwane są odstępstwa od kontraktu, kto wycenia i akceptuje, spory.</td></tr>
+        <tr><td class="time">55–70</td><td class="block">Odbiór i gwarancja</td><td>Punch listy, protokoły, jak dziś prowadzony jest okres gwarancyjny i roszczenia.</td></tr>
+        <tr><td class="time">70–82</td><td class="block">Dokumentacja i ryzyka</td><td>Gdzie są dokumenty, EDB, co bywa problemem na poprzednich kontraktach.</td></tr>
+        <tr><td class="time">82–90</td><td class="block">Podsumowanie</td><td>Ustalenia, brakujące materiały, terminy, właściciele zadań.</td></tr>
+      </table>
+
+      <h3>Pytania wg bloków</h3>
+      <details><summary><span>Kontrakt, zakres, klient</span><span class="arr">+</span></summary><div class="body"><ul>
+        <li>Jak wygląda typowy kontrakt — kto jest zleceniodawcą (inwestor, GW)?</li>
+        <li>Ile kontraktów prowadzicie równolegle? Jedna czy wiele firm w systemie?</li>
+        <li>Co najczęściej idzie nie tak między podpisaniem a odbiorem?</li>
+        <li>Główny cel: termin, marża czy jakość — co jest najważniejsze?</li>
+      </ul></div></details>
+      <details><summary><span>Wykonanie i raportowanie ekipy</span><span class="arr">+</span></summary><div class="body"><ul>
+        <li>Kto jest codziennie na dachu? Kto raportuje postęp i jak?</li>
+        <li>Jak informacja trafia do biura — telefon, zdjęcia, WhatsApp?</li>
+        <li>Ile czasu ekipa realnie poświęci na raport? Co ich zniechęca?</li>
+        <li>Bot dzwoniący wieczorem — czy brygadzista odbierze? O co pytać?</li>
+      </ul></div></details>
+      <details><summary><span>Zmiany i rozliczenia</span><span class="arr">+</span></summary><div class="body"><ul>
+        <li>Jak dziś obsługujecie zmianę zakresu — kto zgłasza, wycenia, akceptuje?</li>
+        <li>Czy zdarzają się spory o to, co było ustalone? Jak je rozstrzygacie?</li>
+        <li>Czy potrzebny jest twardy ślad decyzji (kto, kiedy, co)?</li>
+      </ul></div></details>
+      <details><summary><span>Odbiór i gwarancja</span><span class="arr">+</span></summary><div class="body"><ul>
+        <li>Jak wygląda odbiór — punch lista, protokoły? W jakiej formie?</li>
+        <li>Jak prowadzicie okres gwarancyjny i roszczenia po odbiorze?</li>
+        <li>Czy dokumentacja z wykonania pomaga w sporach gwarancyjnych?</li>
+      </ul></div></details>
+      <details><summary><span>Dokumentacja, formalności, ryzyka</span><span class="arr">+</span></summary><div class="body"><ul>
+        <li>Gdzie trzymane są dokumenty kontraktu?</li>
+        <li>Czy prowadzicie EDB (GUNB)? Jak ma się do tego nasz system?</li>
+        <li>Co poszło nie tak na poprzednich kontraktach — czego unikać?</li>
+      </ul></div></details>
+
+      <h3>Checklista — co przygotować / dostarczyć</h3>
+      <label class="chk"><input type="checkbox"><span class="t"><b>Wzór typowej umowy / kontraktu dekarskiego</b><span>Struktura kontraktu w systemie, baza dla zakresu i zmian.</span></span></label>
+      <label class="chk"><input type="checkbox"><span class="t"><b>Dane osób na dachu (telefony brygadzistów)</b><span>Konfiguracja wieczornego bota i powiadomień.</span></span></label>
+      <label class="chk"><input type="checkbox"><span class="t"><b>Harmonogram / etapy typowego kontraktu</b><span>Baseline do weryfikacji plan vs. rzeczywistość.</span></span></label>
+      <label class="chk"><input type="checkbox"><span class="t"><b>Wzór dzisiejszego raportu z budowy (jeśli jest)</b><span>Punkt wyjścia do pytań bota i formularza.</span></span></label>
+      <label class="chk"><input type="checkbox"><span class="t"><b>Lista pytań do ekipy na każdy wieczór</b><span>Scenariusz rozmowy bota.</span></span></label>
+      <label class="chk"><input type="checkbox"><span class="t"><b>Przykładowa punch lista / protokół odbioru</b><span>Moduł odbioru i usterek.</span></span></label>
+      <label class="chk"><input type="checkbox"><span class="t"><b>Sposób prowadzenia gwarancji i roszczeń</b><span>Moduł nadzoru gwarancyjnego.</span></span></label>
+      <label class="chk"><input type="checkbox"><span class="t"><b>Znane ryzyka i bolączki z poprzednich kontraktów</b><span>Priorytetyzacja funkcji.</span></span></label>
+
+    </div>
+  </details>
 </section>
 
 <footer>
   <p><b>Źródła researchu:</b></p>
   <div class="src">
-    SmartPM, Deltek, Rhumbix — zarządzanie change orderami ·
-    Raken, LogLoon, Crew Console — raporty dzienne z budowy ·
-    The Digital Project Manager, Asana — prowadzenie sesji discovery ·
-    Planning Engineer, Mastt, SmartPM — weryfikacja postępu (EV / SOV) ·
-    Buildern, Buildertrend, Capterra, ClickUp — porównania Procore / Buildertrend / Fieldwire ·
-    CrewCam, Capterra, Autodesk — CompanyCam / Raken / Autodesk Construction Cloud ·
-    GUNB / RynekInstalacyjny, SimplyBud, budow.app, PlanRadar, BudoApka — rynek polski i EDB.
+    Roofing-specific: RooferBase, JobNimbus, Ogline Digital, RoofingSoftwareGuide, OpsRev, Tooled Up Pro (AccuLynx / JobNimbus / Roofr) · RoofSnap, SiteCapture, Dataforma ·
+    Adopcja i UX inputu: BuildLog (voice-to-text), CompanyCam, GoAudits, RoofingSoftwareGuide (crew adoption) ·
+    Pricing / field-vs-office gap: Fuzen, QuoteIQ, RoofingSoftwareGuide ·
+    Gwarancja / closeout: Buildr, WarrantyHub, Verisk Punchlist Manager, SnagID, Fieldwire ·
+    Duże platformy: Buildern, Capterra, Autodesk (Procore / Fieldwire / Raken) ·
+    PL: GUNB/RynekInstalacyjny, budow.app, SimplyBud, PlanRadar, Worker-PRO, Serwis Planner.
   </div>
-  <p style="margin-top:16px">Dobry Dach · hub projektu · dokument roboczy fazy discovery · czerwiec 2026</p>
+  <p style="margin-top:16px">Dobry Dach · hub projektu · faza discovery · wersja 2.0 · czerwiec 2026</p>
 </footer>
 
 </div>
