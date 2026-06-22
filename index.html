@@ -154,6 +154,33 @@
     transform:translateY(-50%);background:var(--blue);color:#fff;width:26px;height:26px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
 
+  /* discovery goals */
+  .dgoals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  @media(max-width:900px){.dgoals{grid-template-columns:1fr}}
+  .dgoal{background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:10px;padding:16px}
+  .dgoal b{display:block;color:var(--blue);margin-bottom:4px;font-size:15px}
+  .dgoal span{font-size:14px;color:var(--mut)}
+
+  /* role cards */
+  .role-c{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0;overflow:hidden;margin-bottom:16px}
+  .role-c .rhead{padding:16px 20px;color:#fff;display:flex;align-items:center;gap:12px}
+  .role-c.r1 .rhead{background:linear-gradient(135deg,#2e7d4f,#3a9d63)}
+  .role-c.r2 .rhead{background:linear-gradient(135deg,#1f4e79,#2e5496)}
+  .role-c.r3 .rhead{background:linear-gradient(135deg,#7a4b13,#a9701f)}
+  .role-c .rhead .ric{font-size:24px}
+  .role-c .rhead b{font-size:18px;display:block}
+  .role-c .rhead small{opacity:.9;font-size:13px}
+  .role-c .rbody{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:760px){.role-c .rbody{grid-template-columns:1fr}}
+  .role-c .col{padding:16px 20px}
+  .role-c .col.prob{border-right:1px solid var(--line);background:#fdf6f5}
+  @media(max-width:760px){.role-c .col.prob{border-right:none;border-bottom:1px solid var(--line)}}
+  .role-c .col .lbl{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+  .role-c .col.prob .lbl{color:var(--red)}
+  .role-c .col.exp .lbl{color:var(--green)}
+  .role-c .col ul{margin-left:17px}
+  .role-c .col li{margin:6px 0;font-size:14px}
+
   footer{padding:30px 0 50px;color:var(--mut);font-size:13.5px}
   .src{font-size:13px;color:var(--mut);margin-top:10px;line-height:1.9}
 </style>
@@ -418,6 +445,74 @@
   <details class="stash">
     <summary><span>📋 Sesja discovery — agenda, pytania, checklista <small>kliknij, aby rozwinąć — materiał do wykorzystania na etapie rozmów z klientem</small></span><span class="arr">+</span></summary>
     <div class="inner">
+
+      <h3>Cele discovery</h3>
+      <p style="color:var(--mut);font-size:15px;margin-bottom:14px">Po co siadamy do rozmowy — co musimy z niej wynieść, zanim zaczniemy projektować system.</p>
+      <div class="dgoals">
+        <div class="dgoal"><b>Zrozumieć 3 perspektywy</b><span>Poznać potrzeby operacyjne, merytoryczne i finansowo-prawne — bo to trzy różne osoby z trzema różnymi bólami.</span></div>
+        <div class="dgoal"><b>Wydobyć realne problemy</b><span>Nie domyślać się — usłyszeć, co konkretnie boli każdą z ról i gdzie tracą czas, pieniądze lub kontrolę.</span></div>
+        <div class="dgoal"><b>Zwalidować pomysły</b><span>Sprawdzić założenia: ekstremalna prostota inputu, wieczorny bot, pełny cykl aż po gwarancję.</span></div>
+        <div class="dgoal"><b>Zebrać materiały bazowe</b><span>Umowy, harmonogramy, protokoły, raporty — to, względem czego będziemy weryfikować rzeczywistość.</span></div>
+        <div class="dgoal"><b>Spriorytetyzować</b><span>Ustalić, co rozwiązać najpierw — od najmocniejszej bolączki, nie od najefektowniejszej funkcji.</span></div>
+        <div class="dgoal"><b>Ustalić zakres pilota</b><span>Wybrać jeden kontrakt i jedną hipotezę (np. bota) do szybkiego testu w realu.</span></div>
+      </div>
+
+      <h3>Trzy role — problemy do rozwiązania i oczekiwania</h3>
+      <p style="color:var(--mut);font-size:15px;margin-bottom:14px">System obsługuje trzy perspektywy. Dla każdej: co ją boli dziś (insight) i czego oczekuje od narzędzia. To kręgosłup całej sesji — pytania dobieramy pod te role.</p>
+
+      <div class="role-c r1">
+        <div class="rhead"><span class="ric">🔧</span><span><b>Kierownik budowy</b><small>Perspektywa operacyjna — robi i daje inputy</small></span></div>
+        <div class="rbody">
+          <div class="col prob"><div class="lbl">Problemy do rozwiązania</div><ul>
+            <li>Raportowanie zżera czas, który wolałby poświęcić na robotę.</li>
+            <li>Informacja z dachu ginie albo dociera do biura za późno.</li>
+            <li>Pisanie w aplikacji w rękawicach i w terenie jest uciążliwe.</li>
+            <li>Dublowanie pracy: to samo wpisywane w kilku miejscach.</li>
+          </ul></div>
+          <div class="col exp"><div class="lbl">Oczekiwania</div><ul>
+            <li>Wprowadzanie w &lt;2 min — głos, zdjęcie, jeden tap.</li>
+            <li>Działanie offline, bez walki z zasięgiem na dachu.</li>
+            <li>Raport za całą ekipę jednym ruchem (lub przez bota).</li>
+            <li>Zero formularzy, które trzeba „wyklikać”.</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="role-c r2">
+        <div class="rhead"><span class="ric">📐</span><span><b>Odbiorca merytoryczny</b><small>Właściciel znający materię budowlaną — ocenia jakość</small></span></div>
+        <div class="rbody">
+          <div class="col prob"><div class="lbl">Problemy do rozwiązania</div><ul>
+            <li>Brak wglądu, czy wykonanie jest zgodne z projektem i sztuką.</li>
+            <li>Postęp znany dopiero z wizyty na budowie — często za późno.</li>
+            <li>Sygnały, że coś idzie nie tak, pojawiają się, gdy jest już problem.</li>
+            <li>Dokumentacja jakości rozproszona, trudna do odtworzenia.</li>
+          </ul></div>
+          <div class="col exp"><div class="lbl">Oczekiwania</div><ul>
+            <li>Weryfikacja plan vs. rzeczywistość na bieżąco, zdalnie.</li>
+            <li>Dowody wizualne z placu (zdjęcia z kontekstem etapu).</li>
+            <li>Wczesne alerty o odstępstwach i ryzykach jakościowych.</li>
+            <li>Pełna złożoność dozwolona — to jego centrum kontroli.</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="role-c r3">
+        <div class="rhead"><span class="ric">⚖️</span><span><b>Odbiorca finansowo-prawny</b><small>Umowa i kasa — perspektywa rozliczeń i ryzyka</small></span></div>
+        <div class="rbody">
+          <div class="col prob"><div class="lbl">Problemy do rozwiązania</div><ul>
+            <li>Spory o zakres i zmiany — brak twardego śladu, kto co ustalił.</li>
+            <li>Zmiany (change ordery) wyceniane i akceptowane zbyt wolno.</li>
+            <li>Ryzyko w okresie gwarancyjnym bez udokumentowanych dowodów wykonania.</li>
+            <li>Rozliczenia i zgodność formalna (umowa, KSeF, EDB) rozjechane.</li>
+          </ul></div>
+          <div class="col exp"><div class="lbl">Oczekiwania</div><ul>
+            <li>Rejestr zmian z wyceną, akceptacją i pełnym śladem decyzji.</li>
+            <li>Dokumentacja jako dowód w sporach i roszczeniach gwarancyjnych.</li>
+            <li>Kontrola marży i statusu finansowego każdego kontraktu.</li>
+            <li>Zgodność z polskimi wymogami (umowa, KSeF, EDB/GUNB).</li>
+          </ul></div>
+        </div>
+      </div>
 
       <h3>Agenda sesji (90 min)</h3>
       <table>
