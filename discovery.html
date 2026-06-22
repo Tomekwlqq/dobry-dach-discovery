@@ -113,6 +113,7 @@
   <div class="prog"><div class="bar" id="bar"></div></div>
   <div class="links">
     <a href="#start">Start</a>
+    <a href="#top3">★ Top 3</a>
     <a href="#e1">1 · Kontrakt</a>
     <a href="#e2">2 · Wykonanie</a>
     <a href="#e3">3 · Zmiany</a>
@@ -133,6 +134,35 @@
       <div class="rl k"><b>🔧 Kierownik budowy</b>Codzienna robota, raportowanie z dachu.</div>
       <div class="rl b"><b>📐 Właściciel — budowlany</b>Jakość, zgodność z projektem i sztuką.</div>
       <div class="rl f"><b>⚖️ Właściciel — finansowy</b>Umowa, kasa, zmiany, ryzyko prawne.</div>
+    </div>
+  </div>
+
+  <!-- TOP 3 per rola -->
+  <div class="stage" id="top3">
+    <div class="shead" style="background:linear-gradient(135deg,#7a4b13,#b8860b)"><span class="snum">★</span><span><b>Na rozgrzewkę — Wasze Top 3</b><small>Najpierw to, co najważniejsze, potem szczegóły w etapach niżej</small></span></div>
+    <div class="sbody">
+      <div class="ctx">Każda rola: wpiszcie trzy najważniejsze cele (co chcecie osiągnąć) i trzy największe problemy (co dziś najbardziej boli). To kręgosłup całej rozmowy.</div>
+
+      <div class="qrole k"><span class="rtag">🔧 Kierownik budowy</span>
+        <div class="q">3 główne cele — co system ma Wam dać w codziennej pracy?</div>
+        <textarea data-key="t3_k_cele" placeholder="1.&#10;2.&#10;3."></textarea>
+        <div class="q" style="margin-top:10px">3 główne problemy — co dziś najbardziej przeszkadza / zabiera czas?</div>
+        <textarea data-key="t3_k_prob" placeholder="1.&#10;2.&#10;3."></textarea>
+      </div>
+
+      <div class="qrole b"><span class="rtag">📐 Właściciel — budowlany</span>
+        <div class="q">3 główne cele — co chcecie kontrolować / osiągnąć w jakości?</div>
+        <textarea data-key="t3_b_cele" placeholder="1.&#10;2.&#10;3."></textarea>
+        <div class="q" style="margin-top:10px">3 główne problemy — gdzie najczęściej wychodzą kłopoty?</div>
+        <textarea data-key="t3_b_prob" placeholder="1.&#10;2.&#10;3."></textarea>
+      </div>
+
+      <div class="qrole f"><span class="rtag">⚖️ Właściciel — finansowy</span>
+        <div class="q">3 główne cele — co chcecie osiągnąć po stronie umów i kasy?</div>
+        <textarea data-key="t3_f_cele" placeholder="1.&#10;2.&#10;3."></textarea>
+        <div class="q" style="margin-top:10px">3 główne problemy — gdzie tracicie pieniądze lub ryzykujecie?</div>
+        <textarea data-key="t3_f_prob" placeholder="1.&#10;2.&#10;3."></textarea>
+      </div>
     </div>
   </div>
 
@@ -270,6 +300,9 @@
 
   // structure for export
   var stages = [
+    ["★ TOP 3 — Kierownik budowy", [["t3_k_cele","3 cele"],["t3_k_prob","3 problemy"]], null],
+    ["★ TOP 3 — Właściciel (budowlany)", [["t3_b_cele","3 cele"],["t3_b_prob","3 problemy"]], null],
+    ["★ TOP 3 — Właściciel (finansowy)", [["t3_f_cele","3 cele"],["t3_f_prob","3 problemy"]], null],
     ["1. Kontrakt i start", [["e1_k","Kierownik"],["e1_b","Właściciel — budowlany"],["e1_f","Właściciel — finansowy"]], "f1"],
     ["2. Wykonanie i raportowanie", [["e2_k","Kierownik"],["e2_b","Właściciel — budowlany"],["e2_f","Właściciel — finansowy"]], "f2"],
     ["3. Zmiany i rozliczenia", [["e3_k","Kierownik"],["e3_b","Właściciel — budowlany"],["e3_f","Właściciel — finansowy"]], "f3"],
